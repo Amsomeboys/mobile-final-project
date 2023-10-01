@@ -96,28 +96,28 @@ const IndexScreen = ({ navigation }) => {
   };
   useEffect(() => {
     if (sortTime === 1) {
-      setData(state.sort((a, b) => a.time.localeCompare(b.time)));
+      setData([...state].sort((a, b) => a.time.localeCompare(b.time)));
     }
-    if (sortDate === 1) {
-      setData(state.sort((a, b) => a.date.localeCompare(b.date)));
+    else if (sortDate === 1) {
+      setData([...state].sort((a, b) => a.date.localeCompare(b.date)));
     }
-    if (sortId === 1) {
-      setData(state.sort((a, b) => a.id.localeCompare(b.id)));
+    else if (sortId === 1) {
+      setData([...state].sort((a, b) => a.id.localeCompare(b.id)));
     }
-    if (sortDateAndTime === 1) {
-      setData(state.sort((a, b) => a.date.localeCompare(b.date)||a.time.localeCompare(b.date)));
+    else if (sortDateAndTime === 1) {
+      setData([...state].sort((a, b) => a.date.localeCompare(b.date)||a.time.localeCompare(b.date)));
     }
-    if (sortTime === 2) {
-      setData(state.sort((a, b) => b.time.localeCompare(a.time)));
+    else if (sortTime === 2) {
+      setData([...state].sort((a, b) => b.time.localeCompare(a.time)));
     }
-    if (sortDate === 2) {
-      setData(state.sort((a, b) => b.date.localeCompare(a.date)));
+    else if (sortDate === 2) {
+      setData([...state].sort((a, b) => b.date.localeCompare(a.date)));
     }
-    if (sortId === 2) {
-      setData(state.sort((a, b) => b.id.localeCompare(a.id)));
+    else if (sortId === 2) {
+      setData([...state].sort((a, b) => b.id.localeCompare(a.id)));
     }
-    if (sortDateAndTime === 2) {
-      setData(state.sort((a, b) => b.date.localeCompare(a.date)||b.time.localeCompare(a.date)));
+    else if (sortDateAndTime === 2) {
+      setData([...state].sort((a, b) => b.date.localeCompare(a.date)||b.time.localeCompare(a.date)));
     } else setData(state);
   }, [state, sort, sortId, sortDate, sortTime,sortDateAndTime]);
 
