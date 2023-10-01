@@ -40,7 +40,7 @@ const App = () => {
                   <TouchableOpacity
                     onPress={() =>
                       navigation.navigate('Edit', {
-                        id: route.params.id,
+                        key: route.params.key,
                       })
                     }
                   >

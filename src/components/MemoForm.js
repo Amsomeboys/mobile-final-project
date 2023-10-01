@@ -14,7 +14,7 @@ import dayjs from 'dayjs';
 const MemoForm = ({ onSubmit, initValues }) => {
   const [id, setId] = useState(initValues.id);
   const [name, setName] = useState(initValues.name);
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(initValues.date);
   const [time, setTime] = useState(initValues.time);
   const [showPicker, setShowPicker] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
