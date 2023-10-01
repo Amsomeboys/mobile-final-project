@@ -5,13 +5,13 @@ import MemoForm from '../components/MemoForm';
 
 const EditScreen = ({ route, navigation }) => {
   const { state, editMemo } = useContext(Context);
-  const id = route.params.id;
+  const key = route.params.key;
 
-  const memo = state.find((memo) => memo.id === id);
+  const memo = state.find((memo) => memo.key === key);
 
   return (
     <View style={styles.container}>
-      <Text style={{ alignSelf: 'flex-end' }}>ID : {id}</Text>
+      <Text style={{ alignSelf: 'flex-end' }}>ID : {key}</Text>
       <MemoForm
         initValues={{
           id: memo.id,
@@ -20,7 +20,7 @@ const EditScreen = ({ route, navigation }) => {
           time: memo.time,
         }}
         onSubmit={(id, name, date, time) => {
-          editMemo(id, name, date, time);
+          editMemo(key, id, name, date, time);
           navigation.pop();
         }}
       />
