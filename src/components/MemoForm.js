@@ -48,6 +48,8 @@ const MemoForm = ({ onSubmit, initValues }) => {
         style={styles.input}
         placeholder="Ex. 01418344"
         value={id}
+        inputMode="numeric"
+        keyboardType="numeric"
         onChangeText={(id) => setId(id)}
       />
       <Text style={styles.label}>ชื่อรายวิชา</Text>
@@ -64,6 +66,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
         placeholder="วัน/เดือน/ปี"
         onFocus={active}
         onBlur={deactive}
+        editable={true}
         value={date}
         onChangeText={onChange}
       />

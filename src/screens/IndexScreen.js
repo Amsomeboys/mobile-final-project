@@ -6,7 +6,6 @@ import {
   FlatList,
   Alert,
   TouchableOpacity,
-  Button,
 } from 'react-native';
 import { Feather, Fontisto } from '@expo/vector-icons';
 import { Context } from '../context/BlogContext';
@@ -49,7 +48,7 @@ const styles = StyleSheet.create({
 });
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addMemo, delMemo, clearMemo } = useContext(Context);
+  const { state, delMemo, clearMemo } = useContext(Context);
   const [data, setData] = useState();
   const [sort, setSort] = useState('');
   const [sortId, setSortId] = useState(0);
@@ -216,7 +215,6 @@ const IndexScreen = ({ navigation }) => {
                   </View>
                   <View style={{ justifyContent: 'center' }}>
                     <TouchableOpacity onPress={() => confirmDelete(item.id)}>
-                      {/* <TouchableOpacity onPress={()=>delMemo(item.id)}> */}
                       <MaterialCommunityIcons
                         name="trash-can-outline"
                         size={30}
