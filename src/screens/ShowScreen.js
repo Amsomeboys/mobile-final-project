@@ -5,13 +5,13 @@ import { Context } from '../context/BlogContext';
 const ShowScreen = ({ route }) => {
   const { state } = useContext(Context);
 
-  const memo = state.find((memo) => memo.id === route.params.id);
+  const memo = state.find((memo) => memo.key === route.params.key);
   console.log(memo);
   return (
     <View style={styles.container}>
       <View style={styles.modalView}>
         <Text style={{ alignSelf: 'flex-end', color: '#74787B' }}>
-          Note ID : {route.params.id}
+          Note ID : {route.params.key}
         </Text>
         <View style={{ alignSelf: 'flex-start', marginTop: 8, gap: 5 }}>
           <Text style={styles.title}>รหัสวิชา : {memo.id}</Text>

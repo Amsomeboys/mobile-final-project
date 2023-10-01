@@ -55,7 +55,7 @@ const IndexScreen = ({ navigation }) => {
   const [sortDate, setSortDate] = useState(0);
   const [sortTime, setSortTime] = useState(0);
 
-  const confirmDelete = (id) => {
+  const confirmDelete = (key) => {
     return Alert.alert(
       'Delete?',
       'Confirm Delete?',
@@ -67,7 +67,7 @@ const IndexScreen = ({ navigation }) => {
         },
         {
           text: 'confirm',
-          onPress: () => delMemo(id),
+          onPress: () => delMemo(key),
         },
       ],
       { cancelable: false },
@@ -204,7 +204,7 @@ const IndexScreen = ({ navigation }) => {
           return (
             <View style={styles.dataBox}>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Show', { id: item.id })}
+                onPress={() => navigation.navigate('Show', { key: item.key })}
               >
                 <View style={styles.row}>
                   <View style={{ gap: 8 }}>
@@ -214,7 +214,7 @@ const IndexScreen = ({ navigation }) => {
                     <Text style={styles.text}>เวลา : {item.time}</Text>
                   </View>
                   <View style={{ justifyContent: 'center' }}>
-                    <TouchableOpacity onPress={() => confirmDelete(item.id)}>
+                    <TouchableOpacity onPress={() => confirmDelete(item.key)}>
                       <MaterialCommunityIcons
                         name="trash-can-outline"
                         size={30}
