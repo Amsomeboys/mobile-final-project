@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Button,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { Feather, Fontisto } from '@expo/vector-icons';
 import { Context } from '../context/BlogContext';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -52,9 +52,9 @@ const IndexScreen = ({ navigation }) => {
   const { state, addMemo, delMemo, clearMemo } = useContext(Context);
   const [data, setData] = useState();
   const [sort, setSort] = useState('');
-  const [sortId, setSortId] = useState(1);
-  const [sortDate, setSortDate] = useState(1);
-  const [sortTime, setSortTime] = useState(1);
+  const [sortId, setSortId] = useState(0);
+  const [sortDate, setSortDate] = useState(0);
+  const [sortTime, setSortTime] = useState(0);
 
   const confirmDelete = (id) => {
     return Alert.alert(
@@ -97,12 +97,23 @@ const IndexScreen = ({ navigation }) => {
   useEffect(() => {
     if (sort === 'time' && sortTime === 1) {
       setData(state.sort((a, b) => a.time.localeCompare(b.time)));
-    } else if (sort === 'date' && sortDate === 1) {
+    }
+    if (sort === 'date' && sortDate === 1) {
       setData(state.sort((a, b) => a.date.localeCompare(b.date)));
-    } else if (sort === 'id' && sortId === 1) {
+    }
+    if (sort === 'id' && sortId === 1) {
       setData(state.sort((a, b) => a.id.localeCompare(b.id)));
     }
-  }, [state]);
+    if (sort === 'time' && sortTime === 2) {
+      setData(state.sort((a, b) => b.time.localeCompare(a.time)));
+    }
+    if (sort === 'date' && sortDate === 2) {
+      setData(state.sort((a, b) => b.date.localeCompare(a.date)));
+    }
+    if (sort === 'id' && sortId === 2) {
+      setData(state.sort((a, b) => b.id.localeCompare(a.id)));
+    } else setData(state);
+  }, [state, sort, sortId, sortDate, sortTime]);
 
   return (
     <View style={styles.container}>
@@ -122,14 +133,70 @@ const IndexScreen = ({ navigation }) => {
           gap: 20,
         }}
       >
-        <Button
-          title="Sort by id"
-          onPress={() => {
-            setSort('id');
-          }}
-        />
-        <Button title="Sort by date" onPress={() => setSort('date')} />
-        <Button title="Sort by time" onPress={() => setSort('time')} />
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <Text style={{ marginTop: 12 }}>Id</Text>
+          <View>
+            <TouchableOpacity
+              onPress={() => {
+                setSort('id');
+                setSortId(1);
+              }}
+            >
+              <Fontisto name="caret-up" size={20} color="black" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setSort('id');
+                setSortId(2);
+              }}
+            >
+              <Fontisto name="caret-down" size={20} color="black" />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <Text style={{ marginTop: 12 }}>Date</Text>
+          <View>
+            <TouchableOpacity
+              onPress={() => {
+                setSort('date');
+                setSortDate(1);
+              }}
+            >
+              <Fontisto name="caret-up" size={20} color="black" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setSort('date');
+                setSortDate(2);
+              }}
+            >
+              <Fontisto name="caret-down" size={20} color="black" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <Text style={{ marginTop: 12 }}>Time</Text>
+          <View>
+            <TouchableOpacity
+              onPress={() => {
+                setSort('time');
+                setSortTime(1);
+              }}
+            >
+              <Fontisto name="caret-up" size={20} color="black" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setSort('time');
+                setSortTime(2);
+              }}
+            >
+              <Fontisto name="caret-down" size={20} color="black" />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
       <FlatList
         data={data}
