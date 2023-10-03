@@ -21,7 +21,6 @@ const ShowScreen = ({ route }) => {
           <Text style={styles.content}>เวลา : {memo.time}</Text>
           <Text style={styles.content}>จบการสอบวันที่ : {memo.dateEnd}</Text>
           <Text style={styles.content}>เวลา : {memo.timeEnd}</Text>
-
         </View>
       </View>
     </View>
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#D6D5CF',
     borderRadius: 20,
     width: '90%',
     padding: 35,
