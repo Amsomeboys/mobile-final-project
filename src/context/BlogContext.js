@@ -18,8 +18,11 @@ const memoReducer = (state, action) => {
           key: Math.floor(Math.random() * 99999),
           id: action.payload.id,
           name: action.payload.name,
+          room: action.payload.room,
           date: action.payload.date,
           time: action.payload.time,
+          dateEnd: action.payload.date,
+          timeEnd: action.payload.time,
         },
       ];
 
@@ -29,18 +32,18 @@ const memoReducer = (state, action) => {
 };
 
 const addMemo = (dispatch) => {
-  return (id, name, date, time) => {
-    dispatch({ type: 'add-memo', payload: { id, name, date, time } });
+  return (id, name, room , date, time, dateEnd, timeEnd) => {
+    dispatch({ type: 'add-memo', payload: {id, name, room , date, time, dateEnd, timeEnd} });
   };
 };
 const delMemo = (dispatch) => {
   return (key) => dispatch({ type: 'del-memo', payload: key });
 };
 const editMemo = (dispatch) => {
-  return (key, id, name, date, time) =>
+  return (key, id, name, room , date, time, dateEnd, timeEnd) =>
     dispatch({
       type: 'edit-memo',
-      payload: { key, id, name, date, time },
+      payload: { key, id, name, room , date, time, dateEnd, timeEnd},
     });
 };
 const clearMemo = (dispatch) => {

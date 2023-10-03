@@ -6,8 +6,8 @@ const CreateScreen = ({ navigation }) => {
   const { addMemo } = useContext(Context);
   return (
     <MemoForm
-      onSubmit={(id, name, date, time) => {
-        addMemo(id, name, date, time);
+      onSubmit={(id, name, room , date, time, dateEnd, timeEnd) => {
+        addMemo(id, name, room , date, time, dateEnd, timeEnd);
         navigation.navigate('Index');
       }}
     />

@@ -15,9 +15,13 @@ const ShowScreen = ({ route }) => {
         </Text>
         <View style={{ alignSelf: 'flex-start', marginTop: 8, gap: 5 }}>
           <Text style={styles.title}>รหัสวิชา : {memo.id}</Text>
+          <Text style={styles.content}>ห้อง : {memo.room}</Text>
           <Text style={styles.content}>ชื่อวิชา : {memo.name}</Text>
-          <Text style={styles.content}>วันที่สอบ : {memo.date}</Text>
-          <Text style={styles.content}>เวลาที่สอบ : {memo.time}</Text>
+          <Text style={styles.content}>เริ่มสอบวันที่ : {memo.date}</Text>
+          <Text style={styles.content}>เวลา : {memo.time}</Text>
+          <Text style={styles.content}>จบการสอบวันที่ : {memo.dateEnd}</Text>
+          <Text style={styles.content}>เวลา : {memo.timeEnd}</Text>
+
         </View>
       </View>
     </View>
