@@ -7,9 +7,10 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native';
-import { Feather, Fontisto } from '@expo/vector-icons';
+import { Feather, Fontisto, AntDesign } from '@expo/vector-icons';
 import { Context } from '../context/BlogContext';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 const default_color = "#222221";
 const click_color = "#B2BB1E";
@@ -19,6 +20,7 @@ let color_sort_3=default_color;
 let color_sort_4=default_color;
 let color_sort_5=default_color;
 let color_sort_6=default_color;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
     width: 'auto',
     height: 'auto',
     padding: 6,
+    backgroundColor: '#D6D5CF',
     borderRadius: 16,
     borderColor: '#151515',
     borderWidth: 1,
@@ -100,17 +103,18 @@ const IndexScreen = ({ navigation }) => {
     );
   };
   useEffect(() => {
+
     color_sort_1=default_color
     color_sort_2=default_color
     color_sort_3=default_color
     color_sort_4=default_color
     color_sort_5=default_color
     color_sort_6=default_color
+
     if (sort === 1) {
       setData([...state].sort((a, b) => a.id.localeCompare(b.id)));
-      color_sort_1=click_color
-    }
-    else if (sort === 2) {
+      color_sort_1 = click_color;
+    } else if (sort === 2) {
       setData([...state].sort((a, b) => b.id.localeCompare(a.id)));
       color_sort_2=click_color
     }
@@ -244,13 +248,9 @@ const IndexScreen = ({ navigation }) => {
               >
                 <View style={styles.row}>
                   <View style={{ gap: 8 }}>
-                    <Text style={styles.title}>{item.id}</Text>
+                    <Text style={styles.title}>{item.id} </Text>
                     <Text style={styles.text}>{item.name}</Text>
                     <Text style={styles.text}>ห้อง : {item.room}</Text>
-                    <Text style={styles.text}>เริ่มสอบวันที่ : {item.date}</Text>
-                    <Text style={styles.text}>เวลา : {item.time}</Text>
-                    <Text style={styles.text}>จบการสอบวันที่ : {item.dateEnd}</Text>
-                    <Text style={styles.text}>เวลา : {item.timeEnd}</Text>
                   </View>
                   <View style={{ justifyContent: 'center' }}>
                     <TouchableOpacity onPress={() => confirmDelete(item.key)}>
@@ -274,5 +274,3 @@ const IndexScreen = ({ navigation }) => {
 };
 
 export default IndexScreen;
-
-
