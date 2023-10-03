@@ -4,10 +4,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import IndexScreen from './src/screens/IndexScreen';
 import { Provider } from './src/context/BlogContext';
 import ShowScreen from './src/screens/ShowScreen';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, AntDesign } from '@expo/vector-icons';
 import CreateScreen from './src/screens/CreateScreen';
 import EditScreen from './src/screens/EditScreen';
 import dayjs from 'dayjs';
+import AboutUsScreen from './src/screens/AboutUsScreen';
+
 var buddhistEra = require('dayjs/plugin/buddhistEra');
 dayjs.extend(buddhistEra);
 dayjs().format('BBBB BB');
@@ -18,11 +20,20 @@ const App = () => {
     <Provider>
       <NavigationContainer>
         <Stack.Navigator
-          screenOptions={{
-            headerTitle: 'KU Notepad 📝',
+          screenOptions={({ navigation }) => ({
+            headerTitle: 'KU Exam schedule',
             headerStyle: { backgroundColor: '#006664' },
             headerTintColor: '#fff',
-          }}
+            headerRight: () => (
+              <View style={{ alignItems: 'flex-end' }}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('AboutUs')}
+                >
+                  <AntDesign name="infocirlceo" size={24} color="white" />
+                </TouchableOpacity>
+              </View>
+            ),
+          })}
         >
           <Stack.Screen name="Index" component={IndexScreen} />
           <Stack.Screen
@@ -51,6 +62,7 @@ const App = () => {
               headerBackTitleVisible: false,
             })}
           />
+          <Stack.Screen name="AboutUs" component={AboutUsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
