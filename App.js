@@ -1,4 +1,4 @@
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import IndexScreen from './src/screens/IndexScreen';
@@ -25,7 +25,7 @@ const App = () => {
             headerStyle: { backgroundColor: '#006664' },
             headerTintColor: '#fff',
             headerRight: () => (
-              <View style={{ alignItems: 'flex-end' }}>
+              <View style={{ alignItems: 'flex-end'}}>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('AboutUs')}
                 >

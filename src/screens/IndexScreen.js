@@ -12,7 +12,7 @@ import { Context } from '../context/BlogContext';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const default_color = '#222221';
-const click_color = '#B2BB1E';
+const click_color = '#9ACD32';
 let color_sort_1 = default_color;
 let color_sort_2 = default_color;
 let color_sort_3 = default_color;
@@ -21,7 +21,7 @@ let color_sort_4 = default_color;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffff',
+    backgroundColor: '#fff',
   },
   row: {
     flexDirection: 'row',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     width: 'auto',
     height: 'auto',
     padding: 6,
-    backgroundColor: '#D6D5CF',
+    backgroundColor: '#9ACD32',
     borderRadius: 16,
     borderColor: '#151515',
     borderWidth: 1,
@@ -138,7 +138,7 @@ const IndexScreen = ({ navigation }) => {
           <Feather name="plus" size={30} color="white" />
         </TouchableOpacity>
         <TouchableOpacity onPress={confirmClear}>
-          <MaterialCommunityIcons name="delete-off" size={30} color="#B2BB1E" />
+          <MaterialCommunityIcons name="delete-off" size={30} color="#9ACD32" />
         </TouchableOpacity>
       </View>
       <View
