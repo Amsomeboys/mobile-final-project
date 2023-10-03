@@ -11,6 +11,13 @@ import { Feather, Fontisto } from '@expo/vector-icons';
 import { Context } from '../context/BlogContext';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+const default_color = "#222221";
+const click_color = "#B2BB1E";
+let color_sort_1=default_color;
+let color_sort_2=default_color;
+let color_sort_3=default_color;
+let color_sort_4=default_color;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -91,41 +98,35 @@ const IndexScreen = ({ navigation }) => {
     );
   };
   useEffect(() => {
+    color_sort_1=default_color
+    color_sort_2=default_color
+    color_sort_3=default_color
+    color_sort_4=default_color
     if (sort === 1) {
       setData([...state].sort((a, b) => a.id.localeCompare(b.id)));
+      color_sort_1=click_color
     }
     else if (sort === 2) {
       setData([...state].sort((a, b) => b.id.localeCompare(a.id)));
+      color_sort_2=click_color
     }
     else if (sort === 3) {
-      setData([...state].sort((a, b) => a.date.localeCompare(b.date)));
-    }
-    else if (sort === 4) {
-      setData([...state].sort((a, b) => b.date.localeCompare(a.date)));
-    }
-    else if (sort === 5) {
-      setData([...state].sort((a, b) => a.time.localeCompare(b.time)));
-    }
-    else if (sort === 6) {
-      setData([...state].sort((a, b) => b.time.localeCompare(a.time)));
-    }
-    else if (sort === 7) {
       setData([...state].sort((a, b) => {
-        if(a.date.localeCompare(b.date)==0)
-        {
-          return  a.time.localeCompare(b.time)
+        if (a.date.localeCompare(b.date) == 0) {
+          return a.time.localeCompare(b.time)
         }
         else return a.date.localeCompare(b.date)
       }));
+      color_sort_3=click_color
     }
-    else if (sort === 8) {
+    else if (sort === 4) {
       setData([...state].sort((a, b) => {
-        if(b.date.localeCompare(a.date)==0)
-        {
-          return  b.time.localeCompare(a.time)
+        if (b.date.localeCompare(a.date) == 0) {
+          return b.time.localeCompare(a.time)
         }
         else return b.date.localeCompare(a.date)
       }));
+      color_sort_4=click_color
     }
     else setData(state);
   }, [state, sort]);
@@ -157,53 +158,14 @@ const IndexScreen = ({ navigation }) => {
                 setSort(1);
               }}
             >
-              <Fontisto name="caret-up" size={20} color="black" />
+              <Fontisto name="caret-up" size={20} color={color_sort_1}/>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 setSort(2);
               }}
             >
-              <Fontisto name="caret-down" size={20} color="black" />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={{ flexDirection: 'row', gap: 10 }}>
-          <Text style={{ marginTop: 12 }}>Date</Text>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                setSort(3);
-              }}
-            >
-              <Fontisto name="caret-up" size={20} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setSort(4);
-              }}
-            >
-              <Fontisto name="caret-down" size={20} color="black" />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={{ flexDirection: 'row', gap: 10 }}>
-          <Text style={{ marginTop: 12 }}>Time</Text>
-          <View>
-            <TouchableOpacity
-              onPress={() => {
-                setSort(5);
-              }}
-            >
-              <Fontisto name="caret-up" size={20} color="black" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setSort(6);
-              }}
-            >
-              <Fontisto name="caret-down" size={20} color="black" />
+              <Fontisto name="caret-down" size={20} color={color_sort_2} />
             </TouchableOpacity>
           </View>
         </View>
@@ -213,17 +175,17 @@ const IndexScreen = ({ navigation }) => {
           <View>
             <TouchableOpacity
               onPress={() => {
-                setSort(7);
+                setSort(3);
               }}
             >
-              <Fontisto name="caret-up" size={20} color="black" />
+              <Fontisto name="caret-up" size={20} color={color_sort_3} />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
-                setSort(8);
+                setSort(4);
               }}
             >
-              <Fontisto name="caret-down" size={20} color="black" />
+              <Fontisto name="caret-down" size={20} color={color_sort_4} />
             </TouchableOpacity>
           </View>
         </View>
