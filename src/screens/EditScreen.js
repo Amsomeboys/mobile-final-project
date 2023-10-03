@@ -16,11 +16,14 @@ const EditScreen = ({ route, navigation }) => {
         initValues={{
           id: memo.id,
           name: memo.name,
+          room: memo.room,
           date: memo.date,
           time: memo.time,
+          dateEnd: memo.dateEnd,
+          timeEnd: memo.timeEnd,
         }}
-        onSubmit={(id, name, date, time) => {
-          editMemo(key, id, name, date, time);
+        onSubmit={(id, name, room, date, time, dateEnd, timeEnd) => {
+          editMemo(key, id, name, room, date, time, dateEnd, timeEnd);
           navigation.pop();
         }}
       />

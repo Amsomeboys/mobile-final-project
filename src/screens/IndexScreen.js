@@ -192,7 +192,7 @@ const IndexScreen = ({ navigation }) => {
       </View>
       <FlatList
         data={data}
-        keyExtractor={(memo) => memo.id}
+        keyExtractor={(memo) => memo.key}
         renderItem={({ item }) => {
           return (
             <View style={styles.dataBox}>
@@ -203,8 +203,11 @@ const IndexScreen = ({ navigation }) => {
                   <View style={{ gap: 8 }}>
                     <Text style={styles.title}>{item.id}</Text>
                     <Text style={styles.text}>{item.name}</Text>
-                    <Text style={styles.text}>วันที่ : {item.date}</Text>
+                    <Text style={styles.text}>ห้อง : {item.room}</Text>
+                    <Text style={styles.text}>เริ่มสอบวันที่ : {item.date}</Text>
                     <Text style={styles.text}>เวลา : {item.time}</Text>
+                    <Text style={styles.text}>จบการสอบวันที่ : {item.dateEnd}</Text>
+                    <Text style={styles.text}>เวลา : {item.timeEnd}</Text>
                   </View>
                   <View style={{ justifyContent: 'center' }}>
                     <TouchableOpacity onPress={() => confirmDelete(item.key)}>
