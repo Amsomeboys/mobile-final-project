@@ -22,7 +22,7 @@ const memoReducer = (state, action) => {
           date: action.payload.date,
           time: action.payload.time,
           dateEnd: action.payload.date,
-          timeEnd: action.payload.time,
+          timeEnd: action.payload.timeEnd,
         },
       ];
 
