@@ -101,35 +101,58 @@ const IndexScreen = ({ navigation }) => {
     );
   };
   useEffect(() => {
-    color_sort_1 = default_color;
-    color_sort_2 = default_color;
-    color_sort_3 = default_color;
-    color_sort_4 = default_color;
+
+    color_sort_1=default_color
+    color_sort_2=default_color
+    color_sort_3=default_color
+    color_sort_4=default_color
+    color_sort_5=default_color
+    color_sort_6=default_color
+
     if (sort === 1) {
       setData([...state].sort((a, b) => a.id.localeCompare(b.id)));
       color_sort_1 = click_color;
     } else if (sort === 2) {
       setData([...state].sort((a, b) => b.id.localeCompare(a.id)));
-      color_sort_2 = click_color;
-    } else if (sort === 3) {
-      setData(
-        [...state].sort((a, b) => {
-          if (a.date.localeCompare(b.date) == 0) {
-            return a.time.localeCompare(b.time);
-          } else return a.date.localeCompare(b.date);
-        }),
-      );
-      color_sort_3 = click_color;
-    } else if (sort === 4) {
-      setData(
-        [...state].sort((a, b) => {
-          if (b.date.localeCompare(a.date) == 0) {
-            return b.time.localeCompare(a.time);
-          } else return b.date.localeCompare(a.date);
-        }),
-      );
-      color_sort_4 = click_color;
-    } else setData(state);
+      color_sort_2=click_color
+    }
+    else if (sort === 3) {
+      setData([...state].sort((a, b) => {
+        if (a.date.localeCompare(b.date) == 0) {
+          return a.time.localeCompare(b.time)
+        }
+        else return a.date.localeCompare(b.date)
+      }));
+      color_sort_3=click_color
+    }
+    else if (sort === 4) {
+      setData([...state].sort((a, b) => {
+        if (b.date.localeCompare(a.date) == 0) {
+          return b.time.localeCompare(a.time)
+        }
+        else return b.date.localeCompare(a.date)
+      }));
+      color_sort_4=click_color
+    }
+    else if (sort === 5) {
+      setData([...state].sort((a, b) => {
+        if (a.dateEnd.localeCompare(b.dateEnd) == 0) {
+          return a.timeEnd.localeCompare(b.timeEnd)
+        }
+        else return a.dateEnd.localeCompare(b.dateEnd)
+      }));
+      color_sort_5=click_color
+    }
+    else if (sort === 6) {
+      setData([...state].sort((a, b) => {
+        if (b.dateEnd.localeCompare(a.dateEnd) == 0) {
+          return b.timeEnd.localeCompare(a.timeEnd)
+        }
+        else return b.dateEnd.localeCompare(a.dateEnd)
+      }));
+      color_sort_6=click_color
+    }
+    else setData(state);
   }, [state, sort]);
 
   // console.log('sortId',sortId,'sortDate',sortDate,'sortTime',sortTime,'sortDateAndTime',sortDateAndTime)
@@ -152,14 +175,14 @@ const IndexScreen = ({ navigation }) => {
         }}
       >
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <Text style={{ marginTop: 12 }}>Id</Text>
+          <Text style={{ marginTop: 22, textAlign:'center'}}>รหัสวิชา</Text>
           <View>
             <TouchableOpacity
               onPress={() => {
                 setSort(1);
               }}
             >
-              <Fontisto name="caret-up" size={20} color={color_sort_1} />
+              <Fontisto name="caret-up" size={20} color={color_sort_1} marginTop={12}/>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -172,14 +195,14 @@ const IndexScreen = ({ navigation }) => {
         </View>
 
         <View style={{ flexDirection: 'row', gap: 10 }}>
-          <Text style={{ marginTop: 12 }}>Date&Time</Text>
+          <Text style={{ marginTop: 12, textAlign:'center'}}>วันและเวลา{'\n'}เริ่มสอบ</Text>
           <View>
             <TouchableOpacity
               onPress={() => {
                 setSort(3);
               }}
             >
-              <Fontisto name="caret-up" size={20} color={color_sort_3} />
+              <Fontisto name="caret-up" size={20} color={color_sort_3} marginTop={12} />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -187,6 +210,27 @@ const IndexScreen = ({ navigation }) => {
               }}
             >
               <Fontisto name="caret-down" size={20} color={color_sort_4} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={{ flexDirection: 'row', gap: 10 }}>
+          <Text style={{ marginTop: 12, textAlign:'center'}}>วันและเวลา{'\n'}จบการสอบ</Text>
+          <View>
+            <TouchableOpacity
+              onPress={() => {
+                setSort(5);
+              }}
+            >
+              <Fontisto name="caret-up" size={20} color={color_sort_5} marginTop={12}/>
+            </TouchableOpacity>
+            {/* <Text>{'\n'}</Text> */}
+            <TouchableOpacity
+              onPress={() => {
+                setSort(6);
+              }}
+            >
+              <Fontisto name="caret-down" size={20} color={color_sort_6} />
             </TouchableOpacity>
           </View>
         </View>

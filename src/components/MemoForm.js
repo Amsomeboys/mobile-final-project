@@ -8,6 +8,8 @@ import {
   Modal,
   TouchableOpacity,
   ScrollView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import DatePicker from 'react-native-modern-datepicker';
 import dayjs from 'dayjs';
@@ -119,7 +121,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
         onBlur={deactiveDate}
         editable={true}
         value={date}
-        // onChangeText={onChangeDate}
+        showSoftInputOnFocus={false}
       />
       <Modal animationType="slide" transparent={true} visible={showDatePicker}>
         <View style={styles.centeredView}>
@@ -149,6 +151,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
         onFocus={activeTime}
         onBlur={deactiveTime}
         value={time}
+        showSoftInputOnFocus={false}
         // onChangeText={onChangeTime}
       />
       <Modal animationType="slide" transparent={true} visible={showTimePicker}>
@@ -174,6 +177,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
         onBlur={deactiveDateEnd}
         editable={true}
         value={dateEnd}
+        showSoftInputOnFocus={false}
         // onChangeText={onChangeDateEnd}
       />
       <Modal animationType="slide" transparent={true} visible={showDateEndPicker}>
@@ -204,6 +208,7 @@ const MemoForm = ({ onSubmit, initValues }) => {
         onFocus={activeTimeEnd}
         onBlur={deactiveTimeEnd}
         value={timeEnd}
+        showSoftInputOnFocus={false}
         // onChangeText={onChangeTimeEnd}
       />
       <Modal animationType="slide" transparent={true} visible={showTimeEndPicker}>
