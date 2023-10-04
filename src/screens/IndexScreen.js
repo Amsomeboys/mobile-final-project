@@ -17,6 +17,8 @@ let color_sort_1 = default_color;
 let color_sort_2 = default_color;
 let color_sort_3 = default_color;
 let color_sort_4 = default_color;
+let color_sort_5 = default_color;
+let color_sort_6 = default_color;
 
 const styles = StyleSheet.create({
   container: {
