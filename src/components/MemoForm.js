@@ -248,6 +248,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginLeft: 5,
     fontWeight: 'bold',
+    left: 10,
+    top: 7,
   },
   input: {
     fontSize: 18,
