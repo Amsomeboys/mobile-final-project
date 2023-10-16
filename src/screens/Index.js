@@ -15,10 +15,10 @@ const Index = ({ navigation }) => {
         height: '100%',
       }}
     >
-      <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: '96' }}>
+      <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 96 }}>
         KU
       </Text>
-      <Text style={{ color: '#9ACD32', fontWeight: 'bold', fontSize: '28' }}>
+      <Text style={{ color: '#9ACD32', fontWeight: 'bold', fontSize: 28 }}>
         Exam Schedule
       </Text>
       <View style={[styles.button, { margin: 30 }]}>
