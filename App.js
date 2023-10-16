@@ -9,6 +9,7 @@ import CreateScreen from './src/screens/CreateScreen';
 import EditScreen from './src/screens/EditScreen';
 import dayjs from 'dayjs';
 import AboutUsScreen from './src/screens/AboutUsScreen';
+import Index from './src/screens/Index';
 
 var buddhistEra = require('dayjs/plugin/buddhistEra');
 dayjs.extend(buddhistEra);
@@ -21,11 +22,12 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={({ navigation }) => ({
+            // headerShown: false,
             headerTitle: 'KU Exam schedule',
             headerStyle: { backgroundColor: '#006664' },
             headerTintColor: '#fff',
             headerRight: () => (
-              <View style={{ alignItems: 'flex-end'}}>
+              <View style={{ alignItems: 'flex-end' }}>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('AboutUs')}
                 >
@@ -35,6 +37,11 @@ const App = () => {
             ),
           })}
         >
+          <Stack.Screen
+            name="index"
+            component={Index}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="Index" component={IndexScreen} />
           <Stack.Screen
             name="Create"
